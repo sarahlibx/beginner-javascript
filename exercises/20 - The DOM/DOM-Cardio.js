@@ -1,7 +1,7 @@
 // Make a div
-const div = document.createElement('div');
+const div = document.createElement("div");
 // add a class of wrapper to it
-div.classList.add('wrapper');
+div.classList.add("wrapper");
 // put it into the body
 document.body.appendChild(div);
 // make an unordered list
@@ -16,16 +16,16 @@ const ul = `<ul>
 div.innerHTML = ul;
 
 // create an image
-const img = document.createElement('img');
+const img = document.createElement("img");
 // set the source to an image
-img.src = 'https://picsum.photos/500';
+img.src = "https://picsum.photos/500";
 // set the width to 250
 img.width = 250;
 img.height = 250;
 // add a class of cute
-img.classList.add('cute');
+img.classList.add("cute");
 // add an alt of Cute Puppy
-img.alt = 'cute puppy!';
+img.alt = "cute puppy!";
 // Append that image to the wrapper
 div.appendChild(img);
 // with HTML string, make a div, with two paragraphs inside of it
@@ -35,9 +35,13 @@ const myHTML = `
     <p>Paragraph Two</p>
   </div>
 `;
+const ulElement = div.querySelector('ul');
 // put this div before the unordered list from above
-
+ulElement.insertAdjacentElement('beforeBegin', myHTML);
 // add a class to the second paragraph called warning
+const myDiv = div.querySelector('.myDiv');
+myDiv.children[1].classList.add('warning');
+
 // remove the first paragraph
 
 // create a function called generatePlayerCard that takes in three arguments: name, age, and height
