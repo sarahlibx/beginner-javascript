@@ -37,15 +37,25 @@ const myHTML = `
 `;
 const ulElement = div.querySelector('ul');
 // put this div before the unordered list from above
-ulElement.insertAdjacentElement('beforeBegin', myHTML);
+ulElement.insertAdjacentHTML('beforeBegin', myHTML);
 // add a class to the second paragraph called warning
 const myDiv = div.querySelector('.myDiv');
 myDiv.children[1].classList.add('warning');
 
 // remove the first paragraph
-
+myDiv.firstElementChild.remove();
 // create a function called generatePlayerCard that takes in three arguments: name, age, and height
+function generatePlayerCard(name, age, height) {
+    const html = `
+    <div class="playerCard">
+    <h2>${name} - ${age}</h2>
+    <p>Their height is ${height} inches and ${age} years old. In Dog years this person would be ${age *7}. That would be an old dog!</p>
+    <button class="delete" type="button">&times; Delete</button>
+    </div>
+    `;
 
+    return html;
+}
 // have that function return html that looks like this:
 // <div class="playerCard">
 //   <h2>NAME — AGE</h2>
@@ -53,13 +63,29 @@ myDiv.children[1].classList.add('warning');
 // </div>
 
 // make a new div with a class of cards
-
+const cards = document.createElement('div');
+cards.classList.add('cards');
 // make 4 player cards using generatePlayerCard
+let cardsHTML = generatePlayerCard('sarah', 34, 110);
+cardsHTML += generatePlayerCard('eric', 34, 110);
+cardsHTML += generatePlayerCard('kairi', 34, 110);
+cardsHTML += generatePlayerCard('sora', 34, 110);
+cardsHTML += generatePlayerCard('nemo', 34, 110);
 
+cards.innerHTML = cardsHTML;
+div.insertAdjacentElement('beforeBegin', cards);
 // append those cards to the div
 // put the div into the DOM just before the wrapper element
 // Bonus, put a delete Button on each card so when you click it, the whole card is removed
 
 // select all the buttons!
+const buttons = document.querySelectorAll('.delete');
+
+function deleteCard(event) {
+    const buttonThatGotClicked = event.currentTarget;
+    buttonThatGotClicked.closest('.playerCard').remove();
+}
+
+buttons.forEach(button => button.addEventListener('click', deleteCard));
 // make out delete function
 // loop over them and attach a listener
