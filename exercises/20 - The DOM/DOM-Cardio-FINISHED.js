@@ -1,4 +1,4 @@
-// Make a div
+// PRACTICE Make a div
 const div = document.createElement('div');
 // add a class of wrapper to it
 div.classList.add('wrapper');
