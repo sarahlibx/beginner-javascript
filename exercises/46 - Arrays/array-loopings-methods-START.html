@@ -150,6 +150,50 @@
           : console.log("getting the next topping");
       }
       toppings.forEach(logTopping);
+
+      console.clear();
+
+      function addArms(face) {
+        return `🐶${face}🐶`;
+      }
+
+      const toys = faces.map(addArms);
+
+      console.log(toys);
+
+      function smithify(name) {
+        return `${name} Smith`;
+      }
+
+      function capitalize(word) {
+        return `${word[0].toUpperCase()}${word.slice(1)}`;
+      }
+
+      const fullNames = ["sarah", "eric", "nemo", "sora", "kairi"]
+        .map(capitalize)
+        .map(smithify);
+      console.log(fullNames);
+
+      const orderTotalsWithTax = orderTotals.map((total) => total * 0.65);
+      console.log(orderTotalsWithTax);
+
+      const cleanPeople = people.map(function (person) {
+        // console.log(person);
+        // timestamp
+        const birthday = new Date(person.birthday).getTime();
+        // now timestamp
+        const now = new Date();
+        const age = Math.floor((now - birthday) / 31536000000);
+        console.log(age);
+        // get birthday
+        // figure out age
+        // return full name & bday in object
+        return {
+          age: age,
+          name: `${person.names.first} ${person.names.last}`,
+        };
+      });
+      console.table(cleanPeople);
     </script>
   </body>
 </html>
