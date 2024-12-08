@@ -49,8 +49,8 @@
       ];
 
       /*
-      Static Methods
-    */
+        Static Methods
+      */
 
       // Array.of();
 
@@ -71,8 +71,8 @@
       // Take the meats object and make three arrays with Object.entries(), Object.keys, Object.values()
 
       /*
-      Instance Methods
-    */
+        Instance Methods
+      */
 
       // Display all bun types with " or " - use join()
 
@@ -104,23 +104,77 @@
       // to make mutable, create a new array:
       const reversedToppings = [...toppings].reverse();
       /*
-      Callback Methods
-    */
+        Callback Methods
+      */
 
       // find the first rating that talks about a burger with find()
+      //function findBurgRating(singleFeedback) {
+      //  return singleFeedback.comment.includes("burg");
+      // }
+      function findByWord(word) {
+        return function (singleFeedback) {
+          return singleFeedback.comment.includes(word);
+        };
+      }
+
+      // const burgFinder = findByWord("burg");
+      // const burgRating = feedback.find(findBurgRating);
+
+      // OR shorten the above by:
+      // const burgRating = feedback.find(findByWord('burg'));
+
+      // console.log(burgRating);
       // find all ratings that are above 2 with filter()
+      function filterByMinRating(minRating) {
+        return function (singleFeedback) {
+          return singleFeedback.rating > minRating;
+        };
+      }
+
+      const goodReviews = feedback.filter(filterByMinRating(2));
+      console.table(goodReviews);
       // find all ratings that talk about a burger with filter()
+      const burgRatings = feedback.filter(findByWord("burg"));
+      console.table(burgRatings);
       // Remove the one star rating however you like!
-
+      const removeBadRatings = feedback.filter(
+        (singleFeedback) => singleFeedback.rating !== 1
+      );
+      console.table(removeBadRatings);
       // check if there is at least 5 of one type of meat with some()
+      const enoughMeat = Object.values(meats).some(
+        (meatValue) => meatValue >= 5
+      );
+      console.log(enoughMeat);
       // make sure we have at least 3 of every meat with every()
+      const everyMeat = Object.values(meats).every(
+        (meatValue) => meatValue >= 3
+      );
+      console.log(everyMeat);
       // sort the toppings alphabetically with sort()
-      // sort the order totals from most expensive to least with .sort()
-      // Sort the prices with sort()
+      const numbers = [1, 2, 100, 3, 200, 400, 155];
+      const numbersSorted = numbers.sort(
+        (firstItem, secondItem) => firstItem - secondItem
+      );
 
+      console.log(numbersSorted);
+      // sort the order totals from most expensive to least with .sort()
+      const decreasingOrderTotals = orderTotals.sort(
+        function (firstItem, secondItem) {
+          return secondItem - firstItem;
+        }
+      );
+      console.log(decreasingOrderTotals);
+      // Sort the prices with sort()
+      const sortedPrices = Object.entries(prices).sort(function (a, b) {
+        const aPrice = a[1];
+        const bPrice = b[2];
+        return aPrice - bPrice;
+      });
+      console.table(sortedPrices);
       /*
-      Looping Methods (next)
-    */
+        Looping Methods (next)
+      */
     </script>
   </body>
 </html>
