@@ -133,8 +133,8 @@
       ];
 
       /*
-      Looping Methods
-    */
+        Looping Methods
+      */
       function logTopping(topping, index, originalArray) {
         const nextTopping = originalArray[index + 1];
         const prevTopping = originalArray[index - 1];
@@ -194,6 +194,30 @@
         };
       });
       console.table(cleanPeople);
+
+      const over40 = cleanPeople.filter((person) => person.age > 40);
+      console.table(over40);
+
+      if (over40.length) {
+        console.log("There are some people over 40.");
+      }
+
+      function findById(id) {
+        return function isStudent(student) {
+          return student.id === id;
+        };
+      }
+
+      function findByProp(prop, propLookingFor) {
+        return function isStudent(student) {
+          return student[prop] === propLookingFor;
+        };
+      }
+
+      const chosenStudent = students.find(findByProp("id", "565a"));
+      const chosenStudent2 = students.find(findByProp("first_name", "Micki"));
+      console.log(chosenStudent);
+      console.log(chosenStudent2);
     </script>
   </body>
 </html>
