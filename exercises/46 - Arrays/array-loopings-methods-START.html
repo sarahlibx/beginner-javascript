@@ -218,6 +218,37 @@
       const chosenStudent2 = students.find(findByProp("first_name", "Micki"));
       console.log(chosenStudent);
       console.log(chosenStudent2);
+
+      //reduce
+      console.clear();
+      function tallyNumbers(tally, currentTotal) {
+        console.log(`The current tally is ${tally}`);
+        console.log(`The current total is ${currentTotal}`);
+        console.log("------");
+        //return current tally + amount of this order
+        return tally + currentTotal;
+      }
+      const allOrders = orderTotals.reduce(tallyNumbers, 0);
+      console.log(allOrders);
+
+      console.clear();
+      // inventory totals
+      function inventoryReducer(totals, item) {
+        console.log(`looping over ${item.type}`);
+        // increment type by 1
+        totals[item.type] = totals[item.type] + 1 || 1;
+        // return totals so next loop can use data
+        return totals;
+      }
+
+      const inventoryCounts = inventory.reduce(inventoryReducer, {});
+      console.log(inventoryCounts);
+
+      const totalInventoryPrice = inventory.reduce(
+        (acc, item) => acc + item.price,
+        0
+      );
+      console.log(totalInventoryPrice);
     </script>
   </body>
 </html>
