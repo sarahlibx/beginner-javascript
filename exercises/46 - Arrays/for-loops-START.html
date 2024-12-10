@@ -1,27 +1,41 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>For Loops</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>For Loops</title>
-</head>
+  <body>
+    <script>
+      const numbers = [2, 34, 3, 23, 42, 3, 1, 65, 364, 5, 645, 6];
 
-<body>
-  <script>
-    const numbers = [2, 34, 3, 23, 42, 3, 1, 65, 364, 5, 645, 6];
+      const name = "Wes Bos";
 
-    const name = 'Wes Bos';
+      // For
 
-    // For
+      for (let i = 0; i <= 10; i++) {
+        console.log(i);
+      }
 
-    // For of
+      // For of
+      for (const letter of name) {
+        console.log(letter);
+      }
+      // For in
 
-    // For in
+      // While Loop
 
-    // While Loop
-  </script>
-</body>
-
+      let cool = true;
+      let i = 1;
+      while (cool === true) {
+        console.log("you are cool.");
+        i++;
+        if (i > 100) {
+          cool = false;
+        }
+      }
+    </script>
+  </body>
 </html>
