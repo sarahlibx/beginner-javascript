@@ -1,15 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>New, This, Prototypes and Classes</title>
+    <link rel="stylesheet" href="../base.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>New, This, Prototypes and Classes</title>
-  <link rel="stylesheet" href="../base.css">
-</head>
+  <body>
+    <script>
+      const myDate = new Date("December 26, 2024");
 
-<body>
+      const names = ["sarah", "eric"];
 
-</body>
+      function Pizza(toppings = [], customer) {
+        console.log("making a pizza");
+        // save the toppings that were passed in to this instance of the pizza
+        this.toppings = toppings;
+        this.customer = customer;
+        this.id = Math.floor(Math.random() * 12666215).toString(16);
+      }
 
+      const veganPizza = new Pizza(["olives"], "Sarah");
+      const pepperoniPizza = new Pizza(
+        ["pepperoni", "onions", "peppers"],
+        "Eric"
+      );
+      console.log(pepperoniPizza);
+    </script>
+  </body>
 </html>
